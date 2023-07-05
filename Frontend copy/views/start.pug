@@ -1,0 +1,23 @@
+extends layout
+
+block content
+    h1 BlockVote
+    .row
+        .chart-container(style="position: relative; height:45vh; width:90vw")
+            canvas#myChart
+        h3 Vote for Best Programmer
+        form.form(action="/vote", method="post")
+            .custom-control.custom-radio
+                input.custom-control-input(type="radio", name="vote", id="vote1", value="Inban", required=true)
+                label.custom-control-label.ms-1(for="vote1") Inban
+            .custom-control.custom-radio
+                input.custom-control-input(type="radio", name="vote", id="vote2", value="Kushaal", required=true)
+                label.custom-control-label.ms-1(for="vote2") Kushaal
+            .custom-control.custom-radio
+                input.custom-control-input(type="radio", name="vote", id="vote3", value="Chiddy", required=true)
+                label.custom-control-label.ms-1(for="vote3") Chiddy
+            button.btn.btn-primary.mt-2.mb-2(type='submit') Submit Vote
+
+    script(src="/voting.js")
+    script.
+        getVotes();
